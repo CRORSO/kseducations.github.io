@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Assessment Template - KS Education</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        beige: {
+                            DEFAULT: '#AFA18D',
+                            light: '#F5F5F0',
+                        },
+                        olive: {
+                            DEFAULT: '#6B8E23',
+                            dark: '#5a7a1d',
+                        },
+                        grey: {
+                            soft: '#C9C9C9',
+                        },
+                        charcoal: {
+                            DEFAULT: '#3B3B3B',
+                        }
+                    },
+                    fontFamily: {
+                        'heading': ['Libre Baskerville', 'serif'],
+                        'body': ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        [data-palette="sage"] .bg-olive { background-color: #709070 !important; }
+        [data-palette="sage"] .bg-olive-dark { background-color: #5a7a5a !important; }
+        [data-palette="sage"] .hover\:bg-olive:hover { background-color: #709070 !important; }
+        [data-palette="sage"] .hover\:bg-olive-dark:hover { background-color: #5a7a5a !important; }
+        [data-palette="sage"] .text-olive { color: #709070 !important; }
+        [data-palette="sage"] .hover\:text-olive:hover { color: #709070 !important; }
+        [data-palette="sage"] .border-olive { border-color: #709070 !important; }
+        [data-palette="sage"] .bg-beige-light { background-color: #faf8f5 !important; }
+        [data-palette="sage"] .text-charcoal { color: #1f2937 !important; }
+        [data-palette="sage"] .from-olive { --tw-gradient-from: #709070 !important; }
+        [data-palette="sage"] .to-olive-dark { --tw-gradient-to: #5a7a5a !important; }
+        [data-palette="sage"] .bg-olive\/20 { background-color: rgba(112, 144, 112, 0.2) !important; }
+        [data-palette="sage"] .focus\:ring-olive { --tw-ring-color: #709070 !important; }
+        
+        [data-palette="forest"] .bg-olive { background-color: #335033 !important; }
+        [data-palette="forest"] .bg-olive-dark { background-color: #263d26 !important; }
+        [data-palette="forest"] .hover\:bg-olive:hover { background-color: #335033 !important; }
+        [data-palette="forest"] .hover\:bg-olive-dark:hover { background-color: #263d26 !important; }
+        [data-palette="forest"] .text-olive { color: #335033 !important; }
+        [data-palette="forest"] .hover\:text-olive:hover { color: #335033 !important; }
+        [data-palette="forest"] .border-olive { border-color: #335033 !important; }
+        [data-palette="forest"] .bg-beige-light { background-color: #f0f0eb !important; }
+        [data-palette="forest"] .text-charcoal { color: #2d2d2d !important; }
+        [data-palette="forest"] .from-olive { --tw-gradient-from: #335033 !important; }
+        [data-palette="forest"] .to-olive-dark { --tw-gradient-to: #263d26 !important; }
+        [data-palette="forest"] .bg-olive\/20 { background-color: rgba(51, 80, 51, 0.2) !important; }
+        [data-palette="forest"] .focus\:ring-olive { --tw-ring-color: #335033 !important; }
+        
+        #paletteToggle::after { content: ' - Olive Green'; font-size: 0.75rem; opacity: 0.7; }
+        [data-palette="sage"] #paletteToggle::after { content: ' - Sage Green'; }
+        [data-palette="forest"] #paletteToggle::after { content: ' - Forest Green'; }
+    </style>
+</head>
+<body class="bg-beige-light text-charcoal font-body" data-palette="olive">
+
+    <!-- Header / Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="text-2xl font-semibold text-charcoal">
+                <a href="index.html">KS Education</a>
+            </div>
+            <ul class="hidden md:flex space-x-8 items-center">
+                <li><a href="index.html" class="hover:text-olive transition">Home</a></li>
+                <li><a href="index.html#about" class="hover:text-olive transition">About</a></li>
+                <li><a href="services.html" class="hover:text-olive transition">Services</a></li>
+                <li><a href="shop.html" class="hover:text-olive transition">Shop</a></li>
+                <li><a href="dashboard.html" class="px-4 py-2 bg-olive text-white rounded hover:bg-olive-dark transition">Account</a></li>
+                <li>
+                    <button id="paletteToggle" class="flex items-center gap-2 px-4 py-2 border-2 border-olive text-olive rounded hover:bg-olive hover:text-white transition font-medium" title="Switch Color Palette">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                        </svg>
+                        <span class="text-sm">Colors</span>
+                    </button>
+                </li>
+            </ul>
+            <!-- Mobile menu button -->
+            <button class="md:hidden p-2" aria-label="Open menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Breadcrumb -->
+        <section class="bg-white border-b border-gray-200 py-4">
+            <div class="container mx-auto px-4">
+                <nav class="flex items-center space-x-2 text-sm text-gray-600" aria-label="Breadcrumb">
+                    <a href="index.html" class="hover:text-olive transition">Home</a>
+                    <span>/</span>
+                    <a href="shop.html" class="hover:text-olive transition">Shop</a>
+                    <span>/</span>
+                    <span class="text-charcoal font-medium">Risk Assessment Template</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Product Detail -->
+        <section class="py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    <!-- Left Column - Image/Preview -->
+                    <div class="space-y-6">
+                        <!-- Main Preview -->
+                        <div class="h-96 bg-gradient-to-br from-olive/10 to-beige rounded-lg flex items-center justify-center mb-8">
+                            <svg class="w-40 h-40" fill="#A8BA8E" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-8-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm0-4H8V8h8v2z"/>
+                            </svg>
+                        </div>
+                        
+                        <!-- Thumbnail Gallery -->
+                        <div class="grid grid-cols-4 gap-4">
+                            <button class="bg-beige rounded-lg h-24 flex items-center justify-center border-2 border-olive">
+                                <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </button>
+                            <button class="bg-beige rounded-lg h-24 flex items-center justify-center hover:border-2 hover:border-gray-300">
+                                <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </button>
+                            <button class="bg-beige rounded-lg h-24 flex items-center justify-center hover:border-2 hover:border-gray-300">
+                                <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </button>
+                            <button class="bg-beige rounded-lg h-24 flex items-center justify-center hover:border-2 hover:border-gray-300">
+                                <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Sample Preview Button -->
+                        <button class="w-full px-6 py-3 border-2 border-olive text-olive rounded-lg hover:bg-olive hover:text-white transition font-medium flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                            View Full Sample PDF
+                        </button>
+                    </div>
+
+                    <!-- Right Column - Product Info -->
+                    <div class="space-y-6">
+                        <!-- Category Badge -->
+                        <div>
+                            <span class="inline-block px-3 py-1 bg-olive/20 text-olive text-sm font-medium rounded">
+                                Risk Assessment
+                            </span>
+                        </div>
+
+                        <!-- Title -->
+                        <h1 class="text-4xl font-bold text-charcoal font-heading">
+                            Risk Assessment Template
+                        </h1>
+
+                        <!-- Rating & Reviews -->
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                </svg>
+                                <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                </svg>
+                                <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                </svg>
+                                <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                </svg>
+                                <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                </svg>
+                            </div>
+                            <span class="text-gray-600">4.9 (127 reviews)</span>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="flex items-baseline gap-4">
+                            <span class="text-5xl font-bold text-olive">$49</span>
+                            <span class="text-gray-500 text-lg">AUD</span>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="space-y-4">
+                            <p class="text-lg text-charcoal leading-relaxed">
+                                Our comprehensive Risk Assessment Template helps you systematically identify, analyze, and mitigate workplace hazards. Fully compliant with Australian WHS regulations.
+                            </p>
+                            <p class="text-charcoal">
+                                This professional template guides you through the entire risk assessment process, from hazard identification to control implementation and monitoring.
+                            </p>
+                        </div>
+
+                        <!-- Format Options -->
+                        <div class="space-y-3">
+                            <label class="font-medium text-charcoal">File Format:</label>
+                            <div class="flex gap-3">
+                                <button class="px-6 py-3 border-2 border-olive bg-olive text-white rounded-lg font-medium">
+                                    PDF + DOCX ($49)
+                                </button>
+                                <button class="px-6 py-3 border-2 border-gray-300 text-charcoal rounded-lg hover:border-olive font-medium">
+                                    PDF Only ($35)
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="space-y-3 pt-4">
+                            <button class="w-full px-8 py-4 bg-olive text-white rounded-lg hover:bg-olive-dark transition text-lg font-semibold">
+                                Add to Cart
+                            </button>
+                            <button class="w-full px-8 py-4 bg-olive text-white rounded-lg hover:bg-olive-dark transition text-lg font-semibold">
+                                Buy Now
+                            </button>
+                        </div>
+
+                        <!-- Features List -->
+                        <div class="bg-beige-light rounded-lg p-6 space-y-3">
+                            <h3 class="font-semibold text-charcoal mb-4 font-heading">What's Included:</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-olive mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    <span class="text-charcoal">Comprehensive risk assessment matrix</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-olive mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    <span class="text-charcoal">Step-by-step completion guide</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-olive mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    <span class="text-charcoal">Pre-filled examples for common hazards</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-olive mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    <span class="text-charcoal">Australian WHS legislation references</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-olive mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    <span class="text-charcoal">Fully editable and customizable</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-olive mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    <span class="text-charcoal">Lifetime access with updates</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Guarantee -->
+                        <div class="flex items-start gap-3 bg-olive/20 p-4 rounded-lg">
+                            <svg class="w-6 h-6 text-olive flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                            <div>
+                                <p class="font-medium text-charcoal">30-Day Money-Back Guarantee</p>
+                                <p class="text-sm text-gray-600 mt-1">Not satisfied? Get a full refund within 30 days.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Tabs -->
+        <section class="py-12 bg-white border-t border-gray-200">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <!-- Tab Navigation -->
+                <div class="flex border-b border-gray-200 mb-8">
+                    <button class="px-6 py-3 border-b-2 border-olive text-olive font-medium">
+                        Description
+                    </button>
+                    <button class="px-6 py-3 text-gray-600 hover:text-charcoal">
+                        Specifications
+                    </button>
+                    <button class="px-6 py-3 text-gray-600 hover:text-charcoal">
+                        Reviews (127)
+                    </button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="space-y-6">
+                    <h2 class="text-2xl font-bold text-charcoal font-heading">Complete Risk Assessment Solution</h2>
+                    
+                    <p class="text-charcoal leading-relaxed">
+                        This comprehensive Risk Assessment Template is designed to help Australian businesses of all sizes comply with Work Health and Safety (WHS) legislation while creating safer workplaces. Whether you're conducting your first risk assessment or updating existing documentation, this template provides a structured, professional framework.
+                    </p>
+
+                    <h3 class="text-xl font-semibold text-charcoal pt-4 font-heading">Key Features</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-medium text-charcoal mb-2">For All Industries</h4>
+                            <p class="text-charcoal">Adaptable framework suitable for construction, healthcare, retail, office environments, manufacturing, and more.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-charcoal mb-2">Compliant & Current</h4>
+                            <p class="text-charcoal">Aligned with current Australian WHS regulations and regularly updated to reflect legislative changes.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-charcoal mb-2">Easy to Use</h4>
+                            <p class="text-charcoal">Clear instructions and pre-filled examples guide you through each section of the assessment process.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-charcoal mb-2">Professional Format</h4>
+                            <p class="text-charcoal">Clean, organized layout that's ready to share with stakeholders, auditors, or regulatory bodies.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-charcoal pt-4 font-heading">Who Should Use This Template?</h3>
+                    
+                    <ul class="space-y-2 text-charcoal">
+                        <li class="flex items-start">
+                            <span class="text-olive mr-2">•</span>
+                            <span>Small business owners managing workplace safety</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-olive mr-2">•</span>
+                            <span>WHS coordinators and safety officers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-olive mr-2">•</span>
+                            <span>Project managers overseeing high-risk activities</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-olive mr-2">•</span>
+                            <span>HR professionals implementing safety programs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-olive mr-2">•</span>
+                            <span>Consultants providing safety services to clients</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section class="py-16 bg-beige-light">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-charcoal mb-8 font-heading">Related Templates</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <!-- Related Product 1 -->
+                    <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                        <div class="h-40 bg-beige flex items-center justify-center">
+                            <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold mb-2 font-heading">Incident Report Form</h3>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-olive">$19</span>
+                                <a href="#" class="text-olive hover:text-olive-dark text-sm">View →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Related Product 2 -->
+                    <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                        <div class="h-40 bg-beige flex items-center justify-center">
+                            <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold mb-2 font-heading">Safety Induction Checklist</h3>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-olive">$29</span>
+                                <a href="#" class="text-olive hover:text-olive-dark text-sm">View →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Related Product 3 -->
+                    <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                        <div class="h-40 bg-beige flex items-center justify-center">
+                            <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold mb-2 font-heading">Emergency Evacuation Plan</h3>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-olive">$39</span>
+                                <a href="#" class="text-olive hover:text-olive-dark text-sm">View →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Related Product 4 -->
+                    <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                        <div class="h-40 bg-beige flex items-center justify-center">
+                            <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold mb-2 font-heading">WHS Policy Manual</h3>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-olive">$79</span>
+                                <a href="#" class="text-olive hover:text-olive-dark text-sm">View →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 bg-olive text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">
+                    Need Expert Guidance?
+                </h2>
+                <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+                    Our premium consultation service includes custom document creation tailored to your specific business needs.
+                </p>
+                <a href="services.html" class="inline-block px-8 py-3 bg-white text-olive rounded-lg hover:bg-beige-light transition text-lg font-medium">
+                    Explore Consultation Services
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-white text-xl font-semibold mb-4 font-heading">KS Education</h3>
+                    <p class="text-sm">
+                        Australian risk management and compliance solutions for modern businesses.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="index.html#about" class="hover:text-white transition">About</a></li>
+                        <li><a href="shop.html" class="hover:text-white transition">Shop</a></li>
+                        <li><a href="services.html" class="hover:text-white transition">Services</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Legal -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition">Refund Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>Email: info@kseducation.com.au</li>
+                        <li>ABN: 12 345 678 901</li>
+                        <li>Australia-wide service</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center text-sm">
+                <p>&copy; 2026 KS Education. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggleBtn = document.getElementById('paletteToggle');
+        const body = document.body;
+        const savedPalette = localStorage.getItem('colorPalette') || 'olive';
+        body.setAttribute('data-palette', savedPalette);
+        
+        toggleBtn.addEventListener('click', () => {
+            const currentPalette = body.getAttribute('data-palette');
+            const palettes = ['olive', 'sage', 'forest'];
+            const currentIndex = palettes.indexOf(currentPalette);
+            const newPalette = palettes[(currentIndex + 1) % palettes.length];
+            body.setAttribute('data-palette', newPalette);
+            localStorage.setItem('colorPalette', newPalette);
+            
+            const paletteNames = { olive: 'Olive Green', sage: 'Sage Green', forest: 'Forest Green' };
+            showNotification(`Switched to ${paletteNames[newPalette]}`);
+        });
+        
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = 'position:fixed;top:80px;right:20px;background:#3B3B3B;color:white;padding:12px 24px;border-radius:8px;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.15)';
+            document.body.appendChild(notification);
+            setTimeout(() => { notification.style.opacity = '0'; notification.style.transition = 'opacity 0.3s'; setTimeout(() => notification.remove(), 300); }, 2500);
+        }
+    </script>
+
+</body>
+</html>
